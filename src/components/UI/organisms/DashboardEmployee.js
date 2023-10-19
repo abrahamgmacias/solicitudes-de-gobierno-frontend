@@ -1,16 +1,11 @@
-import React from 'react';
+import Navbar from '../molecules/Navbar'
 
 
 export default function DashboardEmployee() {
     return (
         <div>
-            <nav className="bg-green-500 p-4">
-                <div className="container mx-auto">
-                    <p className="text-white text-xl font-medium font-helvetica">
-                        Gestor de Solicitudes MX
-                    </p>
-                </div>
-            </nav>
+            <Navbar />
+            <p>Welcome employee</p>
         </div>
     )
 }
