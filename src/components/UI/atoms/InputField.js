@@ -3,7 +3,7 @@
 export default function InputField(props) {
     return (
         <input
-            onClick={props.onClick}
+            onClick={!!props.onClick ? props.setChange : null}
             placeholder={props.placeholder}
             type={props.type}
             id={props.id}
