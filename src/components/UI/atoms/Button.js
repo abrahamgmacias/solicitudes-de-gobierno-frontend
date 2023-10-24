@@ -3,6 +3,6 @@ export default function Button(props) {
         <button
             type="button"
             className={props.className}
-            onClick={props.onClick}>{props.button}</button>
+            onClick={!!props.onClick ? props.onClick : null}>{props.button}</button>
     )
 }
