@@ -1,4 +1,7 @@
 import Button from '../atoms/Button';
+// import LoginPage from '../../pages/LoginPage';
+import { Link } from 'react-router-dom';
+// import { url } from '../../../requests/url';
 
 export default function Navbar(props) {
     const buttonStyle = "bg-white text-green-500 hover:bg-green-100 hover:text-green-600 font-medium py-2 px-4 rounded"
@@ -12,10 +15,14 @@ export default function Navbar(props) {
                     Gestor de Solicitudes MX
                 </p>
                 <div className="flex space-x-4">
-                    <Button
-                        className={buttonStyle}
-                        button="Log In"
-                    />
+                    <Link to="/login">
+                        <Button
+                            className={buttonStyle}
+                            button="Log In"
+                            onClick={null}
+                        />
+                    </Link>
+
                     <Button
                         className={buttonStyle}
                         button="Register"
