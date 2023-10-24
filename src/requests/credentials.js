@@ -3,12 +3,14 @@ export const loginUserCredentials = (email, password) => {
     return {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
         },
+        accept: "*/*",
+        connection: "keep-alive",
         body: JSON.stringify({
-            'email': email,
-            'password': password
+            "email": email,
+            "password": password
         })
     }
 }
