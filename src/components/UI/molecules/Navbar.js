@@ -9,9 +9,11 @@ export default function Navbar(props) {
     return (
         <nav className="bg-green-500 p-4">
             <div className="container mx-auto flex justify-between items-center">
-                <p className="text-white text-xl font-medium font-helvetica">
-                    Gestor de Solicitudes MX
-                </p>
+                <Link to={"/"}>
+                    <p className="text-white text-xl font-medium font-helvetica">
+                        Gestor de Solicitudes MX
+                    </p>
+                </Link>
 
                 {props.loginButtons ?
                     <div className="flex space-x-4">
