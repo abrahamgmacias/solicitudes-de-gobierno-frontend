@@ -1,26 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const initialState = {
-    value: ""
+    token: ""
 };
 
-export const tokenSlice = createSlice({
-    name: "token",
+const tokenSlice = createSlice({
+    name: 'token',
     initialState,
-    reducer: {
-        setToken: (state = initialState, action) => {
-            state.value = action.payload;
+    reducers: {
+        setToken: (state, action) => {
+            state.token = action.payload;
         },
-        removeToken: (state, action) => {
-            return { value: "" }
+        clearToken: (state) => {
+            state.token = '';
         }
     }
 });
 
-export const { setToken, removeToken } = tokenSlice.actions;
-
-export const selectToken = (state) => {
-    return state.token.value;
-}
+export const { setToken, clearToken } = tokenSlice.actions;
 
 export default tokenSlice.reducer;
+
+export const selectToken = (state) => {
+    return state.token.token;
+}
+
+export const selectTokenValue = createSelector([selectToken], (token) => token);
