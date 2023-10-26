@@ -8,15 +8,16 @@ export async function loginUser(credentials) {
     return fetch(`${url}/login`, credentials)
         .then((res) => {
             if (res.status === 401) {
-                Warning("Email or password is incorrect.")
+                new Warning("Email or password is incorrect.")
             }
 
             return res.json();
         })
         .then((json) => {
-            store.dispatch(setToken(json.token));
+            const token = json.token;
+            store.dispatch(setToken(token));
         })
         .catch((err) => {
-            console.log("error")
+            console.log(err)
         });
 }
