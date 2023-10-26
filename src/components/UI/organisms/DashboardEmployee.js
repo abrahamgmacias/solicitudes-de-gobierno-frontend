@@ -7,7 +7,7 @@ export default function DashboardEmployee() {
 
     return (
         <div>
-            <Navbar loginButtons={isTokenAvailable ? false : true} />
+            <Navbar loginButtons={isTokenAvailable ? false : true} logoutButtons={isTokenAvailable ? true : false} />
             <p>Welcome employee</p>
         </div>
     )
