@@ -6,3 +6,5 @@ export const store = configureStore({
         token: tokenReducer
     }
 })
+
+export default store;
