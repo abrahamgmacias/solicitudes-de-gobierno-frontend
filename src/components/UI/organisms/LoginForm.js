@@ -1,7 +1,7 @@
 import Button from '../atoms/Button';
 import InputField from '../atoms/InputField';
 import Label from '../atoms/Label';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { loginUser } from '../../../requests/apiCalls';
 import { loginUserCredentials } from '../../../requests/credentials';
@@ -24,9 +24,11 @@ export default function LoginForm(props) {
     const navigate = useNavigate();
     const isTokenAvailable = useSelector(selectTokenValue);
 
-    if (isTokenAvailable) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (isTokenAvailable) {
+            navigate('/');
+        }
+    });
 
     const formPreventDefault = (e) => {
         e.preventDefault();
