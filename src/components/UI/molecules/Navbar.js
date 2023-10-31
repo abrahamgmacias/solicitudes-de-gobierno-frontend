@@ -3,6 +3,7 @@ import { store } from '../../../app/store';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { clearToken, selectTokenValue } from '../../../features/Login/tokenSlice';
+import { clearFirstName, clearLastName } from '../../../features/User/userSlice';
 
 export default function Navbar(props) {
     const buttonStyle = "bg-white text-green-500 hover:bg-green-100 hover:text-green-600 font-medium py-2 px-4 rounded items-center"
@@ -10,7 +11,9 @@ export default function Navbar(props) {
 
     function logOut() {
         if (isTokenAvailable) {
-            return store.dispatch(clearToken());
+            store.dispatch(clearToken());
+            store.dispatch(clearFirstName());
+            store.dispatch(clearLastName());
         }
     };
 
