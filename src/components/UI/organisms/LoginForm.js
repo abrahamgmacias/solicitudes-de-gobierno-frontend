@@ -28,7 +28,7 @@ export default function LoginForm(props) {
         if (isTokenAvailable) {
             navigate('/');
         }
-    });
+    }, [isTokenAvailable, navigate]);
 
     const formPreventDefault = (e) => {
         e.preventDefault();
