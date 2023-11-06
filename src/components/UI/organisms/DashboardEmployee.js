@@ -9,6 +9,7 @@ export default function DashboardEmployee() {
     const isTokenAvailable = useSelector(selectTokenValue);
     const firstName = useSelector(selectFirstName);
     const secondName = useSelector(selectLastName);
+    // CREATE ROLE SLICE
 
     let welcomingStatement = "Bienvenido empleado... Inicia sesión";
     if (firstName && secondName) {
@@ -24,7 +25,7 @@ export default function DashboardEmployee() {
 
             <hr class="separator"></hr>
 
-            <DashboardButtonLayout />
+            <DashboardButtonLayout role="employee" />
 
         </div>
     )
