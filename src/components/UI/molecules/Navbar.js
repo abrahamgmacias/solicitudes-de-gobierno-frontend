@@ -2,6 +2,7 @@ import Button from '../atoms/Button';
 import { store } from '../../../app/store';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { clearRole } from '../../../features/Login/roleSlice';
 import { clearToken, selectTokenValue } from '../../../features/Login/tokenSlice';
 import { clearFirstName, clearLastName } from '../../../features/User/userSlice';
 
@@ -14,6 +15,7 @@ export default function Navbar(props) {
             store.dispatch(clearToken());
             store.dispatch(clearFirstName());
             store.dispatch(clearLastName());
+            store.dispatch(clearRole());
         }
     };
 

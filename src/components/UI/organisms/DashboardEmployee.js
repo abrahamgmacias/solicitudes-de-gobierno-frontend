@@ -1,5 +1,6 @@
 import Navbar from '../molecules/Navbar'
 import { useSelector } from 'react-redux';
+import { selectRole } from '../../../features/Login/roleSlice';
 import { selectTokenValue } from '../../../features/Login/tokenSlice';
 import { selectFirstName, selectLastName } from '../../../features/User/userSlice';
 import DashboardButtonLayout from '../molecules/DashboardButtonLayout';
@@ -9,7 +10,7 @@ export default function DashboardEmployee() {
     const isTokenAvailable = useSelector(selectTokenValue);
     const firstName = useSelector(selectFirstName);
     const secondName = useSelector(selectLastName);
-    // CREATE ROLE SLICE
+    const role = useSelector(selectRole);
 
     let welcomingStatement = "Bienvenido empleado... Inicia sesión";
     if (firstName && secondName) {
@@ -25,7 +26,7 @@ export default function DashboardEmployee() {
 
             <hr class="separator"></hr>
 
-            <DashboardButtonLayout role="employee" />
+            <DashboardButtonLayout role={role} />
 
         </div>
     )
