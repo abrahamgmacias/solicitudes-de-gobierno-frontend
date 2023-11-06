@@ -9,6 +9,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/crear-solicitud" element={<></>}/>
+        <Route path="/mis-solicitudes" element={<></>}/>
+        <Route path="/solicitudes-cercanas" element={<></>}/>
       </Routes>
     </BrowserRouter>
   );
