@@ -1,12 +1,21 @@
 import Button from '../atoms/Button';
+import { useNavigate } from 'react-router-dom';
+import { checkDashboardOptions } from '../../../utils/auth';
 
 // Add role logic
-export default function DashboardButtonLayout() {
-    const buttonStyle = "bg-gray-400 border border-black px-6 py-2 hover:bg-gray-500 hover:text-white transition duration-300 ml-4 mt-4";
-    const optionList = ['Mis solicitudes', 'Solicitudes cerca de mi', 'Crear solicitudes']
+export default function DashboardButtonLayout(props) {
+    const buttonStyle = "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline";
+    
+    const optionsDict = checkDashboardOptions(props.role);
 
-    const buttons = optionList.map((text, index) => (
-        <Button className={buttonStyle} key={index} button={text} />
+    const navigate = useNavigate();
+    function handleClick(route) {
+        navigate(route)
+    }
+
+    const buttons = optionsDict.map(([key, value]) => (
+        <Button className={buttonStyle} button={key} 
+                onClick={() => { handleClick(value) }}/>
     ));
 
     return (
