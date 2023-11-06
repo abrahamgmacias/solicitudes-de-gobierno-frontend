@@ -7,10 +7,7 @@ export function checkDashboardOptions(role) {
         "Crear solicitudes": "/crear-solicitud"
     };
 
-    
-
     const entries = Object.entries(optionDict);
-    console.log(entries[1])
 
     switch (role) {
         case 'superadmin':
