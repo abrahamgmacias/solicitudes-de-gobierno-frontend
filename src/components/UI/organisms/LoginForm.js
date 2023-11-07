@@ -1,6 +1,7 @@
+import Label from '../atoms/Label';
 import Button from '../atoms/Button';
 import InputField from '../atoms/InputField';
-import Label from '../atoms/Label';
+import InputLabel from '../molecules/InputLabel';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { loginUser } from '../../../requests/apiCalls';
@@ -10,9 +11,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function LoginForm(props) {
-    const inputStyle = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    const labelStyle = "block text-gray-700 text-sm font-bold mb-2"
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -41,37 +39,23 @@ export default function LoginForm(props) {
         <div>
             <form onSubmit={formPreventDefault} onKeyUp={formPreventDefault}>
                 <h2 className="text-2xl font-semibold mb-4">Login</h2>
-                <div className="mb-4">
-                    <Label
-                        className={labelStyle}
-                        for="email"
-                        label="Email:"
-                    />
+                <InputLabel
+                    for="email"
+                    label="Email:"
+                    id="email"
+                    type="text"
+                    placeholder="Enter your email:"
+                    setState={setEmail}
+                />
 
-                    <InputField
-                        className={inputStyle}
-                        id="email"
-                        type="text"
-                        placeholder="Enter your email:"
-                        setState={setEmail}
-                    />
-                </div>
-
-                <div className="mb-6">
-                    <Label
-                        className="block text-gray-700 text-sm font-bold mb-2"
-                        for="password"
-                        label="Password:"
-                    />
-
-                    <InputField
-                        className={inputStyle}
-                        id="password"
-                        type="password"
-                        placeholder="Enter your password"
-                        setState={setPassword}
-                    />
-                </div>
+                <InputLabel
+                    for="password"
+                    label="Password:"
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    setState={setPassword}
+                />
 
                 <div className="flex items-center justify-between">
                     <Button button="Sign in"
