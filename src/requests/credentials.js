@@ -9,8 +9,8 @@ export const loginUserCredentials = (email, password) => {
         accept: "*/*",
         connection: "keep-alive",
         body: JSON.stringify({
-            "email": email,
-            "password": password
+            "correo": email,
+            "contrasena": password
         })
     }
 }
