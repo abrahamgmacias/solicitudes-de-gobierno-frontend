@@ -13,13 +13,13 @@ export default function InputLabel(props) {
 
             <InputField 
                 onClick={props.onClick}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder={props.placeholder}
                 type={props.type}
                 id={props.id}
-                name={props.name}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                onInput={props.onInput}
-                onChange={props.onChange}
+                validate={props.validate}
+                setState={props.setState}
+                setChange={props.setChange}
             />
         </div>
     )
