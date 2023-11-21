@@ -3,12 +3,12 @@ import { store } from '../../../app/store';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { clearRole } from '../../../features/Login/roleSlice';
-import { clearToken, selectTokenValue } from '../../../features/Login/tokenSlice';
+import { clearToken, selectToken } from '../../../features/Login/tokenSlice';
 import { clearFirstName, clearLastName } from '../../../features/User/userSlice';
 
 export default function Navbar(props) {
     const buttonStyle = "bg-white text-green-500 hover:bg-green-100 hover:text-green-600 font-medium py-2 px-4 rounded items-center"
-    const isTokenAvailable = useSelector(selectTokenValue);
+    const isTokenAvailable = useSelector(selectToken);
 
     function logOut() {
         if (isTokenAvailable) {

@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import LoginPage from './components/pages/LoginPage';
 import Navbar from './components/UI/molecules/Navbar';
 import LandingPage from './components/pages/LandingPage';
+import BooksPage from './components/pages/BooksPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { selectTokenValue } from './features/Login/tokenSlice';
+import { selectToken } from './features/Login/tokenSlice';
 
 function App() {
-  const isTokenAvailable = useSelector(selectTokenValue);
+  const isTokenAvailable = useSelector(selectToken);
 
   return (
     <BrowserRouter>
@@ -15,9 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/crear-solicitud" element={<></>}/>
-        <Route path="/mis-solicitudes" element={<></>}/>
-        <Route path="/solicitudes-cercanas" element={<></>}/>
+        <Route path="/registar-libro" element={<></>}/>
+        <Route path="/libros" element={<BooksPage/>}/>
       </Routes>
     </BrowserRouter>
   );
