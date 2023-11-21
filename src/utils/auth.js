@@ -2,13 +2,13 @@
 
 export function checkDashboardOptions(role) {
     const optionDict = {
-        'Mis solicitudes': "/mis-solicitudes",
-        "Solicitudes cerca de mi": "solicitudes-cercanas", 
-        "Crear solicitudes": "/crear-solicitud"
+        'Libros': "libros",
+        "Registrar un libro": "crear", 
     };
 
     const entries = Object.entries(optionDict);
 
+    // Modify for when this changes
     switch (role) {
         case 'superadmin':
             return true;
@@ -17,6 +17,6 @@ export function checkDashboardOptions(role) {
         case 'employee':
             return entries.slice(0, 2);
         default:
-            return [entries[1]];
+            return entries.slice(0, 2);;
     }
 }
