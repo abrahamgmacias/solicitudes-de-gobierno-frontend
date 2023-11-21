@@ -21,8 +21,9 @@ export const { setToken, clearToken } = tokenSlice.actions;
 
 export default tokenSlice.reducer;
 
-export const selectToken = (state) => {
-    return state.token.token;
-}
+const tokenSelector = (state) => state.token;
 
-export const selectTokenValue = createSelector([selectToken], (token) => token);
+export const selectToken = createSelector(
+    tokenSelector,
+    (token) => token.token
+);
