@@ -1,12 +1,10 @@
-import Label from '../atoms/Label';
 import Button from '../atoms/Button';
-import InputField from '../atoms/InputField';
 import InputLabel from '../molecules/InputLabel';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { loginUser } from '../../../requests/apiCalls';
-import { loginUserCredentials } from '../../../requests/credentials';
-import { selectTokenValue } from '../../../features/Login/tokenSlice';
+import { sampleRequest } from '../../../requests/credentials';
+import { selectToken } from '../../../features/Login/tokenSlice';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -14,19 +12,37 @@ export default function LoginForm(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // Call the API
-    const loginButtonClick = () => {
-        loginUser(loginUserCredentials(email, password));
-    }
-
     const navigate = useNavigate();
-    const isTokenAvailable = useSelector(selectTokenValue);
+    const isTokenAvailable = useSelector(selectToken);
 
     useEffect(() => {
         if (isTokenAvailable) {
             navigate('/');
         }
     }, [isTokenAvailable, navigate]);
+ 
+    // Call the API
+    const loginButtonClick = () => {
+        console.log(
+            sampleRequest(
+                "POST",
+                {
+                    correo: email,
+                    contrasena: password
+                }
+            )
+        )
+
+        loginUser(
+            sampleRequest(
+                "POST",
+                {
+                    correo: email,
+                    contrasena: password
+                }
+            )
+        );
+    }
 
     const formPreventDefault = (e) => {
         e.preventDefault();
@@ -38,6 +54,7 @@ export default function LoginForm(props) {
     return (
         <div>
             <form onSubmit={formPreventDefault} onKeyUp={formPreventDefault}>
+                
                 <h2 className="text-2xl font-semibold mb-4">Login</h2>
                 <InputLabel
                     for="email"
@@ -64,6 +81,8 @@ export default function LoginForm(props) {
                     />
                 </div>
             </form>
+
+            
         </div>
     )
 }
