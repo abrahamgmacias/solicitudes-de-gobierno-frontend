@@ -1,16 +1,23 @@
 
-export const loginUserCredentials = (email, password) => {
-    return {
-        method: 'POST',
+export const sampleRequest = (method, body=null, token=null) => {
+    let credentials = {
+        method,
         headers: {
             'Content-type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         accept: "*/*",
-        connection: "keep-alive",
-        body: JSON.stringify({
-            "correo": email,
-            "contrasena": password
-        })
+        connection: "keep-alive"
     }
+
+    // Get reqs avoid adding body error
+    if (method !== 'GET') {
+        credentials = { 
+            ...credentials,
+            body: JSON.stringify(body)
+        }
+    }
+    
+    return credentials
 }
