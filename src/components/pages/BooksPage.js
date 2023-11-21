@@ -4,7 +4,7 @@ import { getLibro } from '../../requests/apiCalls';
 import SearchBar from "../UI/molecules/SearchBar"
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import BookCard from '../UI/molecules/BookCard';
 
 export default function BooksPage(props) {
     const [search, setSearch] = useState('');
@@ -43,7 +43,7 @@ export default function BooksPage(props) {
                 />
             </form>
 
-            {bookData ? <p>{JSON.stringify(bookData)}</p> : null}
+            { !!bookData ? <BookCard bookData={bookData}/> : null }
         </div>
     ) 
 }

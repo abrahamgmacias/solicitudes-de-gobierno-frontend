@@ -16,7 +16,7 @@ export default function LoginPage(props) {
             <Card className="bg-white p-8 rounded shadow-md w-80 mt-5" render={() => (
                 <div>
                     <LeftArrow className="cursor-pointer flex justify-end" onClick={handleClick} text="Go back &larr;"/>
-                    <LoginForm></LoginForm>
+                    <LoginForm/>
                 </div>
             )}/>
         </div>
